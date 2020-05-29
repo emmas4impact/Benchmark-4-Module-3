@@ -36,7 +36,7 @@ body {
     display: inline-block;
     margin-bottom: 0;
   }
-  .fa {
+  /* .fa {
     padding: 20px;
     font-size: 5px;
     width: 30px;
@@ -44,7 +44,7 @@ body {
     text-decoration: none;
     margin: 5px 2px;
     border-radius: 50%;
-  }
+  } */
   
   
   .zoom {
@@ -128,9 +128,9 @@ body {
     transform: scale(1.5); 
   }
   
-  .fa:hover {
+ /*  .fa:hover {
       opacity: 0.5;
-  }
+  } */
   
   
   #example img {
