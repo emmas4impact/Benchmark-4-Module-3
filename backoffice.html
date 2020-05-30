@@ -206,9 +206,9 @@
         console.log('RESPONSE FROM SAVE products',response)
             
         if(response.ok){
-          alert("Products created successfully");
+          alert("Movie created successfully");
           spinner.classList.toggle("d-none");
-          //location.assign("index.html")
+          location.assign("index.html")
         }else{
           spinner.classList.toggle("d-none");
           alert("Error creating products")

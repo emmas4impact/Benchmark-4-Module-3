@@ -45,7 +45,50 @@ body {
     margin: 5px 2px;
     border-radius: 50%;
   } */
-  
+  .pagination .prev.disabled,
+  .pagination .next.disabled{
+    border-color: gray;
+    color:gray;
+    pointer-events: none;
+  }
+  @keyframes show{
+    0%{
+      opacity:0;
+      transform: scale(0.9);
+    }
+    100%{
+      opacity:1;
+      transform: scale(1);
+    }
+}
+.pagination{
+  width: 100%;
+  float: left;
+  padding:15px;
+  text-align: center;
+}
+.pagination div{
+  display: inline-block;
+  margin:0 10px;
+}
+.pagination .page{
+  color:gray;
+}
+.pagination .prev,
+.pagination .next{
+color:white;
+border:1px solid white;
+font-size:15px;
+padding:7px 15px;
+cursor: pointer;
+}
+.hide{
+display: none;
+}
+.show{
+
+animation: show .5s ease;
+}
   
   .zoom {
   
@@ -64,14 +107,14 @@ body {
     height:auto;
   }
   body .carousel-indicators li{
-    background-color:red;
+    
   }
   body .carousel-indicators{
     bottom: 0;
   }
   body .carousel-control-prev-icon,
   body .carousel-control-next-icon{
-    background-color:red;
+    
   }
   body .no-padding{
     padding-left: 0;

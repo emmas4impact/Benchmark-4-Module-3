@@ -144,7 +144,7 @@
           </div>
           <div class="carousel-item">
             <div class="col-xs-3 col-sm-3 col-md-3 zoom">
-              <img src="https://i.ytimg.com/vi/-hVigLHlPG0/maxresdefault.jpg">
+              <img src="./carousel/img1-1.jpg">
             </div>    
             <div class="col-xs-3 col-sm-3 col-md-3 zoom">
               <img src="./carousel/img1-1.jpg">
@@ -216,9 +216,6 @@
       <div class="row tile-row pb-4 fantasy" >
        
       </div>
-      <div class="container-fluid">
-      
-      </div>
       <div class="pagination">
         <div class="prev">Prev</div>
         <div class="page">Page <span class="page-num"></span></div>
@@ -264,15 +261,6 @@
     
     <script>
     
-      let container=document.querySelector(".container").children;
-      const prev=document.querySelector(".prev");
-      const next=document.querySelector(".next");
-      const page=document.querySelector(".page-num");
-      const maxItem=6;
-      let index=1;
-      const pagination=Math.ceil(container.length/maxItem); //pagination is 0
-      console.log(pagination)
-    
     async function createCategory (category, events){
       let eventsCols = document.querySelector('.' + category)
         //changePage(1)
@@ -301,71 +289,111 @@
         } 
     }
     
-    let categories= ["drama", "comedy", "horror","fantasy","sci-fi"]
-      
+    let categories= ["drama", "comedy", "horror"]
+    
       window.onload = async () => {
         //let randomCategories =[];
-        //let category = await getCategory();
-        //let items = await getMovies(category);
+        
         
         for (let i = 0; i < categories.length; i++) {
           const element = categories[i];
           let events = await getMovies(element);
           createCategory(categories[i], events)
-       
+        //   if (element==='drama') {
+        //     //let eventsDiv = document.querySelector(".drama");
+        //     let eventsCols = document.querySelector('.drama')
+        // //changePage(1)
+        //  try {
+        //  // changePage(1)<a href="details.html?id=${e._id}">
+          
+         
+        //   if (events.length > 0) {
+        //   events.forEach((e) => {
+            
+        //    eventsCols.innerHTML+=`<div class="col-3 zoom" >
+        //     <a href="details.html?id=${e._id}"><img src="${e.imageUrl}" alt="" /></a>
+        //                         </div>`
+            
+        //   });
+        //   console.log(events)
+        
+        // } else {
+        //   eventsCols.innerHTML = "<h1>No planned events yet</h1>";
+        // }
+          
+        // } catch (error) {
+        //   console.log("err", error)
+        //   alert(error)
+          
+        // } 
+
+            
+        //   } else if (element==='horror'){
+        //     let horrorEvent= document.querySelector('.horror')
+        // //changePage(1)
+        //  try {
+        //  // changePage(1)<a href="details.html?id=${e._id}">
+        //   //let events = await getMovies(element);
+         
+        //   if (events.length > 0) {
+        //   events.forEach((e) => {
+            
+        //     horrorEvent.innerHTML+=`<div class="col-3 zoom" >
+        //     <a href="details.html/${e.categories}?id=${e._id}"><img src="${e.imageUrl}" alt="" /></a>
+        //                         </div>`
+            
+        //   });
+        //   console.log(events)
+        
+        // } else {
+        //   horrorEvent.innerHTML = "<h1>No planned events yet</h1>";
+        // }
+          
+        // } catch (error) {
+        //   console.log("err", error)
+        //   alert(error)
+          
+        // } 
+            
+        //   }else if (element==='comedy'){
+        //     let comedyEvent = document.querySelector('.comedy')
+        // //changePage(1)
+        //  try {
+        //  // changePage(1)<a href="details.html?id=${e._id}">
+        //   //let events = await getMovies(element);
+         
+        //   if (events.length > 0) {
+        //   events.forEach((e) => {
+            
+        //     comedyEvent.innerHTML+=`<div class="col-3 zoom" >
+        //     <a href="details.html/${e.categories}?id=${e._id}"><img src="${e.imageUrl}" alt="" /></a>
+        //                         </div>`
+            
+        //   });
+        //   console.log(events)
+        
+        // } else {
+        //   comedyEvent.innerHTML = "<h1>No planned events yet</h1>";
+        // }
+          
+        // } catch (error) {
+        //   console.log("err", error)
+        //   alert(error)
+          
+        // } 
+            
+        //   }else(
+        //     console.log('array out of bound')
+        //   )
           
         }
+        
         //showItems();
   	    //check();
-       
       };
       
-      prev.addEventListener("click",function(){
-        index--;
-        check();
-        //showItems();
-     })
-      next.addEventListener("click",function(){
-          index++;
-          check();
-          //showItems();  
-      })
-
-      function check(){
-        if(index==pagination){ //11
-          next.classList.add("disabled");
-        }
-        else{
-          next.classList.remove("disabled");	
-        }
-
-        if(index==1){
-          prev.classList.add("disabled");
-        }
-        else{
-          prev.classList.remove("disabled");	
-        }
-      }
-
-      function showItems() {
-        for(let i=0;i<container.length; i++){
-          
-          container[i].classList.remove("show");
-          container[i].classList.add("hide");
-
-
-            if(i>=(index*maxItem)-maxItem && i<index*maxItem){
-          
-              container[i].classList.remove("hide");
-              container[i].classList.add("show");
-            }
-            page.innerHTML=index;
-        }
-
-          
-      }
-
-        
+      
+    
     
     
     </script>

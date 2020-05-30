@@ -7,6 +7,33 @@ const headers =new Headers({
     'Authorization': 'Basic ' + btoa(username + ":" + password),
 });
 
+/* const getCategory = async () => {
+    let category = await fetch(url, {
+      method: "GET",
+      headers: headers,
+    });
+    console.log(category)
+    return await category.json();
+  };
+
+const getMovies = async (category) => {
+    let result = []
+    for (let index = 0; index < category.length; index++) {
+      const element = category[index];
+     
+    let response = await fetch(url + element, {
+      method: "GET",
+      headers: headers,
+    });
+    const m = await response.json()
+    console.log(m)
+    //return await response.json();
+    result.push(...m)
+     
+}
+console.log(result)
+return result
+  }; */
 
 getMovies = async (categories) =>{
     let response = await fetch(url + categories, {
