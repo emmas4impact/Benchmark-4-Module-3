@@ -65,8 +65,7 @@
           <div class="d-flex justify-content-center h-100 mr-3">
             <div >
              
-              <a href="#" class="alert_icon "><i class="fas fa-bell fa-3x "></i>
-              </a>
+                <a href=""><h5><label for="exampleInputEmail1" class="user bg-sucess" style="text-align: center; margin-top: 1rem;" >user</label></h5></a>
   
             </div>
           </div>
@@ -144,15 +143,21 @@
     <script>
       let id;
       let categories;
+      let user;
       window.onload = async () =>{
         let urlParams =new URLSearchParams(window.location.search);
         id =urlParams.get('id');
+        user=urlParams.get("username")
+        console.log("user is", user)
+        let userid = document.querySelector('.user')
+        
         //let urlParam =new URLSearchParams(window.location.search);
         //categories = get('category')
         
         if (id){
           console.log("ID IS PRESENT, FETCHING PRODUCT", id)
           let event = await getMovie(id);
+          //console.log("user is", user)
           console.log("ID IS PRESENT, FETCH Movie id", event)
           document.querySelector('#name').value=event.name;
           document.querySelector('#description').value=event.description;
@@ -162,6 +167,7 @@
           
         }else{
           console.log("I want to create an Element from Scratch")
+          userid.innerText ='Welcome! ' + user.toUpperCase()
         }
       }
     
