@@ -75,23 +75,14 @@
           <div class="d-flex justify-content-center h-100 mr-3">
             <div >
              
-              <a href="#" class="alert_icon "><i class="fas fa-bell fa-3x "></i>
-              </a>
+                <a href=""><h5><label for="exampleInputEmail1" class="user bg-sucess" style="text-align: center; margin-top: 1rem;" >user</label></h5></a>
   
             </div>
           </div>
-          <div class="dropleft">
-            <a class="btn btn-secondary dropdown-toggle dropleft" href="#" role="button" id="dropdownMenuLink" 
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user fa-1x"></i>
-            </a>
           
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="account.html">Acount</a>
-              <a class="dropdown-item" href="profile.html">Manage Profile</a>
-             
-            </div>
-          </div>
+         
+          <button class="btn btn-outline-success my-2 my-sm-0" onclick="handlelogout()" type="submit">logout</button>
+         
         </div>
         </div>
       </nav>
@@ -122,14 +113,20 @@
     <script src="helper.js"></script>
     <script>
       let id;
+      let user;
 
       window.onload = async () => {
+         
         let urlParams = new URLSearchParams(window.location.search);
         id = urlParams.get("id");
+        user=urlParams.get("username")
+        console.log("user is", user)
         console.log("ID OF THE Movie IS", id);
         let event = await getMovie(id);
         console.log("Movie DETAILS", event);
         let detailsDiv = document.querySelector(".list-unstyled");
+        let userid = document.querySelector('.user')
+        userid.innerText ='Welcome! ' + user.toUpperCase()
         
         detailsDiv.innerHTML = `<li class="media" >
             <img src="${event.imageUrl}" class="mr-3" alt="..." style="width: 18rem;">
@@ -141,7 +138,9 @@
           </div>
         </li> <hr>`;
       };
-      
+      const handlelogout = async () =>{
+        window.location.href='login.html?id=' + id
+      }
 
       const handleDelete = async () => {
         // delete operation, I will need the id

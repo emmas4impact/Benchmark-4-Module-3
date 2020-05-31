@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="./css/styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
     <title>Login Page</title>
   </head>
   <body>
@@ -66,6 +66,7 @@
     
     <script>
         let id;
+        let user;
         window.onload= async ()=>{
             let urlParams = new URLSearchParams(window.location.search);
             id = urlParams.get("id");
@@ -82,14 +83,44 @@
             
             let un = document.querySelector('#user').value
             let pw = document.querySelector('#pass').value;
-            let username = "user9"; 
-            let password = "london";
+            let username = ["empact", "segun", "emma"]; 
+            let password = ["london", "strive", "school1"];
+            let valid =-1
+            for (let i=0; i <username.length; i++) {
+                element =username[i]
+                element2 = password[i]
+                if ((un == element) && (pw == element2)) {
+                    valid = true;
+                    break;
+                }else continue
+            }
             
+            if(valid != -1){
+                if(id){
+                    console.log(un)
+                    window.location.href='/details.html?id='+ id +"&username="+ un
+                    return true;
+                    
+                    //console.log(window.location.href='/details.html?user='+ un)
+                    
+                }else{
+                    window.location.href='/backoffice.html'
+                }
+                
+            }
+            else {
+                alert ("Login was unsuccessful, please check your username and password");
+                return false;
+            }
+
+        /*     
             if ((un == username) && (pw == password)) {
                 if(id){
-                    window.location.href='/details.html?id='+ id ;
+                    console.log(un)
+                    window.location.href='/details.html?id='+ id +"&username="+ un
                     return true;
-                    console.log("success")
+                    
+                    //console.log(window.location.href='/details.html?user='+ un)
                     
                 }else{
                     window.location.href='/backoffice.html'
@@ -99,7 +130,7 @@
             else {
                 alert ("Login was unsuccessful, please check your username and password");
                 return false;
-            }
+            } */
       }
     </script>
 
